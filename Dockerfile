@@ -19,6 +19,9 @@ RUN apt-get update && \
 # Install the PHP zip extention
 RUN docker-php-ext-install zip
 
+# Install the PHP intl extention
+# RUN docker-php-ext-install intl
+
 # Install the PHP mysqli extention
 RUN docker-php-ext-install mysqli
 
