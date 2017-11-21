@@ -1,10 +1,12 @@
-# PHP-FPM Docker image for SilverStripe 3.5 and lower
+# PHP-FPM Docker image for SilverStripe 3.6+
 
-Docker image for a php-fpm container crafted to run SilverStripe 3.5 (and lower) based applications.
+Docker image for a php-fpm container crafted to run SilverStripe 3.6+ based applications.
+
+**Note:** For SilverStripe 3.5 and lower you can use the image available on the `5.6` branch.
 
 ## Specifications:
 
-* PHP 5.6
+* PHP 7.1
 * OpenSSL PHP Extension
 * Mbstring PHP Extension
 * Tokenizer PHP Extension
@@ -12,6 +14,7 @@ Docker image for a php-fpm container crafted to run SilverStripe 3.5 (and lower)
 * Fileinfo PHP Extension
 * Hash PHP Extension
 * Iconv PHP Extension
+* Intl PHP Extension
 * Zip PHP Extension
 * PDO PHP Extension
 * MySQL and PgSQL Support via MySQLi and PgSQL PHP Extensions

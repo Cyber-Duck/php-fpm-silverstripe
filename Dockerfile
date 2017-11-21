@@ -1,9 +1,10 @@
-FROM php:7.0-fpm
+FROM php:7.1-fpm
 
 MAINTAINER clement@cyber-duck.co.uk
 
 RUN apt-get update && \
     apt-get install -y --force-yes --no-install-recommends \
+        zlib1g-dev libicu-dev g++ \
         libz-dev \
         libpq-dev \
         libjpeg-dev \
@@ -20,7 +21,8 @@ RUN apt-get update && \
 RUN docker-php-ext-install zip
 
 # Install the PHP intl extention
-# RUN docker-php-ext-install intl
+RUN docker-php-ext-configure intl
+RUN docker-php-ext-install intl
 
 # Install the PHP mysqli extention
 RUN docker-php-ext-install mysqli
@@ -86,9 +88,9 @@ ADD ./silverstripe.ini /usr/local/etc/php/conf.d
 #####################################
 # Aliases:
 #####################################
-# docker-compose exec php-fpm ss --> php public/framework/cli-script.php
-RUN echo '#!/bin/bash\n/usr/local/bin/php /var/www/public/framework/cli-script.php "$@"' > /usr/bin/ss
-RUN chmod +x /usr/bin/ss
+# docker-compose exec php-fpm sake --> php public/vendor/silverstripe/framework/cli-script
+RUN echo '#!/bin/bash\n/usr/local/bin/php /var/www/public/vendor/silverstripe/framework/cli-script.php "$@"' > /usr/bin/sake
+RUN chmod +x /usr/bin/sake
 # Deployer alias
 RUN echo '#!/bin/bash\n/usr/local/bin/php /var/www/vendor/bin/dep "$@"' > /usr/bin/dep
 RUN chmod +x /usr/bin/dep
