@@ -1,4 +1,4 @@
-FROM php:5.6-fpm
+FROM php:7.0-fpm
 
 MAINTAINER clement@cyber-duck.co.uk
 
@@ -21,6 +21,9 @@ RUN docker-php-ext-install zip
 
 # Install the PHP mysqli extention
 RUN docker-php-ext-install mysqli
+
+# Install the PHP pgsql extention
+RUN docker-php-ext-install pgsql
 
 # Install the PHP pdo_mysql extention
 RUN docker-php-ext-install pdo_mysql
