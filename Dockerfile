@@ -56,23 +56,13 @@ RUN pecl install xdebug && docker-php-ext-enable xdebug
 COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 #####################################
-# PHP XCache:
+# PHP OP Cache:
 #####################################
 
-# Install the php xcache extension
-RUN curl -fsSL 'https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.tar.gz' -o xcache.tar.gz \
-    && mkdir -p xcache \
-    && tar -xf xcache.tar.gz -C xcache --strip-components=1 \
-    && rm xcache.tar.gz \
-    && ( \
-        cd xcache \
-        && phpize \
-        && ./configure --enable-xcache \
-        && make -j$(nproc) \
-        && make install \
-    ) \
-    && rm -r xcache \
-    && docker-php-ext-enable xcache
+# Install the php opcache extension
+RUN docker-php-ext-enable opcache
+# Copy opcache configration
+COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 #####################################
 # Composer:

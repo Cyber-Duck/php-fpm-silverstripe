@@ -14,11 +14,10 @@ Docker image for a php-fpm container crafted to run SilverStripe 3.5 (and lower)
 * Iconv PHP Extension
 * Zip PHP Extension
 * PDO PHP Extension
-* MySQLi PHP Extension
-* MySQL and PgSQL Support
+* MySQL and PgSQL Support via MySQLi and PgSQL PHP Extensions
 * SimpleXML and XML PHP Extension
 * GD2 PHP Extension
-* XCache (with Optimizer and Coverager)
+* OP Cache PHP Extension
 * Composer
 * PHP ini values for SilverStripe (see [`silverstripe.ini`](/silverstripe.ini))
 * xDebug (PHPStorm friendly, see [`xdebug.ini`](/xdebug.ini))
