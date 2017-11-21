@@ -1,6 +1,6 @@
-# PHP-FPM Docker image for SilverStripe
+# PHP-FPM Docker image for SilverStripe 3.5 and lower
 
-Docker image for a php-fpm container crafted to run SilverStripe based applications.
+Docker image for a php-fpm container crafted to run SilverStripe 3.5 (and lower) based applications.
 
 ## Specifications:
 
