@@ -32,7 +32,7 @@ When calling the image you want to use within your `docker-compose.yml` file,
 you can specify a tag for the image. Tags are used for various versions of a
 given Docker image. By default, `latest` is the one used when no tag is specified.
 
-* `latest` which is using PHP 7.0 for SilverStripe `3.6+`.
+* `latest` which is using PHP 7.1 for SilverStripe `3.6+`.
 * `5.6` for SilverStripe `3.5` and lower.
 
 ## docker-compose usage:
