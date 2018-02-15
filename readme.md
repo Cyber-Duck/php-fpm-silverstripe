@@ -36,6 +36,8 @@ given Docker image. By default, `latest` is the one used when no tag is specifie
 * `7.0` for SilverStripe `3.6+` using PHP 7.0.
 * `5.6` for SilverStripe `3.5` and lower using PHP 5.6.
 
+Note: the master branch is not used for generating images, used for documentation instead. Only tags/branches are.
+
 ## docker-compose usage:
 
 ```yml
