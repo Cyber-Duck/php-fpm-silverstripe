@@ -2,6 +2,8 @@ FROM php:7.2-fpm
 
 MAINTAINER clement@cyber-duck.co.uk
 
+ARG xdebug
+
 RUN apt-get update && \
     apt-get install -y --force-yes --no-install-recommends \
         zlib1g-dev libicu-dev g++ \
@@ -61,7 +63,8 @@ RUN apt-get install -y libtidy-dev && \
 #####################################
 
 # Install the xdebug extension
-RUN pecl install xdebug && docker-php-ext-enable xdebug
+
+RUN if [ "$xdebug" = "true" ] ; then pecl install xdebug && docker-php-ext-enable xdebug ; fi
 # Copy xdebug configration for remote debugging
 COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
