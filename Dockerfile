@@ -17,6 +17,9 @@ RUN apt-get update && \
         cron \
         nano
 
+# Install soap extention
+RUN docker-php-ext-install soap
+
 # Install the PHP zip extention
 RUN docker-php-ext-install zip
 
