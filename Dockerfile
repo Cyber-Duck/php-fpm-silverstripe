@@ -17,7 +17,8 @@ RUN apt-get update && \
         openssh-server \
         git \
         cron \
-        nano
+        nano \
+        libxml2-dev
 
 # Install soap extention
 RUN docker-php-ext-install soap
