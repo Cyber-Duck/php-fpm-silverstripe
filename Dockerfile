@@ -1,8 +1,6 @@
 FROM php:7.2-fpm
 
-MAINTAINER clement@cyber-duck.co.uk
-
-ARG xdebug
+MAINTAINER support@cyber-duck.co.uk
 
 RUN apt-get update && \
     apt-get install -y --force-yes --no-install-recommends \
@@ -52,7 +50,6 @@ RUN docker-php-ext-install sockets
 # Install the PHP gd library
 RUN docker-php-ext-install gd && \
     docker-php-ext-configure gd \
-        --enable-gd-native-ttf \
         --with-jpeg-dir=/usr/lib \
         --with-freetype-dir=/usr/include/freetype2 && \
     docker-php-ext-install gd
@@ -70,10 +67,7 @@ RUN apt-get install -y libtidy-dev && \
 #####################################
 
 # Install the xdebug extension
-
-RUN if [ "$xdebug" = "true" ] ; then pecl install xdebug && docker-php-ext-enable xdebug ; fi
-# Copy xdebug configration for remote debugging
-COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+RUN pecl install xdebug
 
 #####################################
 # PHP OP Cache:
@@ -117,8 +111,13 @@ RUN rm -r /var/lib/apt/lists/*
 
 RUN usermod -u 1000 www-data
 
+COPY ./docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+RUN ln -s /usr/local/bin/docker-entrypoint.sh /
+
 WORKDIR /var/www
 
 EXPOSE 9000
 
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["php-fpm"]
