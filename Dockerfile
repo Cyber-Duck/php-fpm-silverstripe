@@ -18,7 +18,8 @@ RUN apt-get update && \
         git \
         cron \
         nano \
-        libxml2-dev
+        libxml2-dev \
+        libzip-dev
 
 # Install soap extention
 RUN docker-php-ext-install soap
@@ -52,7 +53,6 @@ RUN docker-php-ext-install sockets
 # Install the PHP gd library
 RUN docker-php-ext-install gd && \
     docker-php-ext-configure gd \
-        --enable-gd-native-ttf \
         --with-jpeg-dir=/usr/lib \
         --with-freetype-dir=/usr/include/freetype2 && \
     docker-php-ext-install gd
