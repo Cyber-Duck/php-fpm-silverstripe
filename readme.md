@@ -6,7 +6,7 @@ Docker image for a php-fpm container crafted to run SilverStripe 3.6+ based appl
 
 ## Specifications:
 
-* PHP 5.6, 7.0, 7.1, 7.2, 7.3
+* PHP 5.6, 7.0, 7.1, 7.2, 7.3, 7.4
 * OpenSSL PHP Extension
 * Mbstring PHP Extension
 * Tokenizer PHP Extension
